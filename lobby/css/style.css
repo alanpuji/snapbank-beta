@@ -1,0 +1,470 @@
+/* Reset dan Pengaturan Umum */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* Header */
+header {
+  background: linear-gradient(to right, #e7e7e7, #b5b4b0);
+  color: #333;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+#dateTimeDisplay {
+  font-size: 14px;
+}
+
+/* Konten Utama (Slider dan Tombol Transaksi) */
+.container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.left-side {
+  width: 60%;
+  min-width: 300px;
+}
+
+.right-side {
+  width: 30%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.right-side button {
+  background: linear-gradient(45deg, #007bff, #00bcd4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 45px 30px;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.right-side button:hover {
+  background: linear-gradient(45deg, #0056b3, #008c9e); /* Gradien saat hover */
+}
+
+/* Special style for the Bantuan button */
+.right-side .bantuan-btn {
+  background: linear-gradient(45deg, #ff9800, #f57c00); /* Orange gradient */
+}
+
+.right-side .bantuan-btn:hover {
+  background: linear-gradient(
+    45deg,
+    #e65100,
+    #d84315
+  ); /* Darker orange gradient on hover */
+}
+
+/* Slider Gambar */
+.slider img {
+  width: 100%; /* Gambar mengisi lebar container */
+  height: 550px; /* Tentukan tinggi tetap, misalnya 400px */
+  object-fit: cover; /* Gambar akan tetap dalam ukuran tanpa dipotong */
+  border-radius: 10px; /* Sudut gambar melengkung */
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to right, #e7e7e7, #b5b4b0);
+  color: #333;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Menambahkan Responsivitas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+  }
+
+  header {
+    font-size: 24px;
+  }
+
+  .right-side button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Modal */
+.modal {
+  display: none; /* Modal disembunyikan secara default */
+  position: fixed;
+  z-index: 1; /* Menampilkan modal di atas konten lain */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 700px;
+}
+
+/* Close button initial style */
+.close {
+  color: #ff6347; /* Tomato red color for the text */
+  font-size: 28px; /* Large font size */
+  font-weight: bold; /* Bold text */
+  position: fixed; /* Fixed position relative to the viewport */
+  top: 10px; /* Top margin */
+  right: 25px; /* Right margin */
+  transition: 0.3s all ease-in-out; /* Smooth transition for all properties */
+  border: 2px solid #ff6347; /* Red border to match the text color */
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px 12px; /* Add some padding for the button */
+  z-index: 1000; /* Ensure the button appears on top of other elements */
+}
+
+/* Hover and focus effects */
+.close:hover,
+.close:focus {
+  color: #fff; /* Change text color to white */
+  background-color: #ff6347; /* Background turns red on hover/focus */
+  border-color: #ff6347; /* Red border on hover/focus */
+  text-decoration: none; /* Remove underline on hover/focus */
+  cursor: pointer; /* Show pointer cursor */
+  transform: scale(1.2); /* Slightly enlarge the button on hover/focus */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover/focus */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.reader-image img {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.confirm-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 32px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.confirm-button:hover {
+  background-color: #45a049;
+}
+
+/* Tabel di dalam Modal */
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Gaya untuk baris tabel */
+.modal-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Gaya untuk judul kolom tabel */
+.modal-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Gaya untuk isi tabel */
+.modal-table td {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+/* Hide the input field, but still keep it functional */
+.hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+}
+
+.modal-select {
+  width: 100%; /* Elemen akan mengisi 100% lebar kontainer induknya */
+  padding: 10px 15px; /* Padding lebih besar agar teks tidak terpotong */
+  margin: 10px 0; /* Margin atas dan bawah 10px */
+  border: 1px solid #ccc; /* Border abu-abu muda */
+  border-radius: 5px; /* Sudut border melengkung */
+  font-size: 18px; /* Ukuran font lebih besar */
+  height: auto; /* Tinggi otomatis agar bisa menyesuaikan dengan isi */
+  min-height: 40px; /* Minimum tinggi untuk memastikan elemen tidak terlalu kecil */
+  text-overflow: ellipsis; /* Menampilkan ellipsis jika teks lebih panjang dari lebar */
+  white-space: nowrap; /* Menghindari teks terpotong di beberapa baris */
+  overflow: hidden; /* Menyembunyikan overflow jika teks terlalu panjang */
+}
+
+/* Numpad Button Styling */
+.numpad-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.numpad-btn {
+  padding: 20px;
+  font-size: 25px;
+  background-color: #b3e5fc; /* Pastel blue background */
+  border: 1px solid #81d4fa; /* Lighter blue border */
+  color: #0277bd; /* Darker blue text for contrast */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 8px; /* Rounded corners for a soft look */
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect for main numpad buttons */
+.numpad-btn:hover {
+  background-color: #81d4fa; /* Slightly darker pastel blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Focus effect for accessibility */
+.numpad-btn:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.5); /* Soft blue glow when focused */
+}
+
+/* Tombol 0 dengan gradient */
+.numpad-btn-zero {
+  background: linear-gradient(
+    45deg,
+    #28a745,
+    #218838
+  ); /* Gradient hijau untuk tombol 0 */
+  color: white; /* White text color for better contrast */
+}
+
+.numpad-btn-zero:hover {
+  background: linear-gradient(
+    45deg,
+    #218838,
+    #1e7e34
+  ); /* Gradient hijau lebih gelap saat hover */
+}
+
+/* Tombol C dengan gradient */
+.numpad-btn-c {
+  background: linear-gradient(
+    45deg,
+    #dc3545,
+    #c82333
+  ); /* Gradient merah untuk tombol C */
+  color: white; /* White text color for better contrast */
+}
+
+.numpad-btn-c:hover {
+  background: linear-gradient(
+    45deg,
+    #c82333,
+    #bd2130
+  ); /* Gradient merah lebih gelap saat hover */
+}
+
+/* Tombol Back dengan gradient */
+.numpad-btn-back {
+  background: linear-gradient(
+    45deg,
+    #dc3545,
+    #c82333
+  ); /* Gradient merah untuk tombol Backspace */
+  color: white; /* White text color for better contrast */
+  font-size: 20px; /* Optional: Adjust font size */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding for a larger button */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  transition: background 0.3s ease; /* Smooth transition for hover */
+}
+
+.numpad-btn-back:hover {
+  background: linear-gradient(
+    45deg,
+    #c82333,
+    #bd2130
+  ); /* Gradient merah lebih gelap saat hover */
+}
+
+.numpad-btn.disabled {
+  background-color: #ccc; /* Tombol dinonaktifkan */
+  cursor: not-allowed; /* Menampilkan kursor yang menunjukkan tombol tidak aktif */
+}
+#output_saldo_akhir_cbs {
+  font-size: 1.5em; /* Adjust as needed */
+  font-weight: bold;
+  color: #333; /* Optional: change color */
+}
+
+/* Suggested Amounts */
+.suggested-amounts {
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+  margin-top: 15px;
+}
+
+.suggestion-btn {
+  background: linear-gradient(
+    45deg,
+    #007bff,
+    #00bfff
+  ); /* Gradient from blue to light blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.suggestion-btn:hover {
+  background: linear-gradient(
+    45deg,
+    #0056b3,
+    #0087cc
+  ); /* Darker gradient on hover */
+}
+
+/* Desain untuk elemen <ul> */
+.modal-content ul {
+  list-style-type: none; /* Menghilangkan titik di depan setiap list item */
+  padding-left: 0; /* Menghapus padding kiri */
+  margin: 0; /* Menghapus margin default */
+  font-size: 16px; /* Ukuran font yang nyaman dibaca */
+  color: #333; /* Warna teks yang lebih gelap */
+}
+
+/* Desain untuk elemen <li> */
+.modal-content li {
+  display: flex; /* Menggunakan flexbox agar bisa menambahkan ikon */
+  align-items: center; /* Menjaga agar ikon dan teks sejajar */
+  margin-bottom: 15px; /* Memberikan jarak antar item */
+  line-height: 1.6; /* Menjaga jarak antar baris */
+}
+
+/* Desain untuk ikon di depan setiap <li> */
+.modal-content li::before {
+  content: "✔"; /* Gunakan simbol centang atau Anda bisa menggunakan ikon lainnya */
+  font-size: 20px; /* Ukuran ikon */
+  color: #4caf50; /* Warna hijau untuk ikon */
+  margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+  font-weight: bold;
+}
+
+/* Efek hover untuk item <li> */
+.modal-content li:hover {
+  background-color: #f1f1f1; /* Menambahkan latar belakang saat hover */
+  cursor: pointer; /* Menunjukkan bahwa item dapat dipilih */
+  border-radius: 5px; /* Memberikan sudut yang lebih halus */
+  transition: background-color 0.3s ease; /* Efek transisi halus */
+}
+
+/* Floating Countdown Timer Styles */
+#countdownContainer {
+  position: fixed; /* Fixed position at the top */
+  top: 10%; /* Slightly below the very top of the page */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for perfect centering */
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for visibility */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 9999; /* Ensure it's above the modal */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+input[readonly] {
+  background-color: #f0f0f0;
+}
+
+/* Radio Button */
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+label[for="samePenyetor"],
+label[for="differentPenyetor"] {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 16px;
+}

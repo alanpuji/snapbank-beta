@@ -1,0 +1,391 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+#header {
+  background: linear-gradient(to right, #2196f3, #4caf50);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+#footer {
+  background: linear-gradient(to right, #2196f3, #4caf50);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#kiri,
+#kanan {
+  float: left;
+  width: 100%; /* Both sections are 100% wide in default view */
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+@media (min-width: 600px) {
+  #kiri,
+  #kanan {
+    width: 50%; /* Each section will take 50% of the container width */
+  }
+}
+
+.form-container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  transform: rotateY(180deg);
+}
+
+#loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#content {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #3498db;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button#start-camera {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+button#stop-camera {
+  background-color: #007bc7;
+  color: #fff;
+}
+
+#employee_qr {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  transform: rotateY(180deg);
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.watermark-box {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 5px solid #2ecc71;
+  border-radius: 10px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+@keyframes scanAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.watermark-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #2ecc71, transparent);
+  animation: scanAnimation 2s linear infinite;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff; /* White background for the modal content */
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  max-width: 500px; /* Set a maximum width */
+  position: relative; /* For positioning close button */
+}
+
+.close {
+  color: #ff0000; /* Red color for close button */
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #cc0000; /* Darker red on hover */
+}
+
+.modal-body {
+  margin-top: 20px;
+  text-align: center; /* Centered content */
+}
+
+.result-text {
+  font-size: 18px; /* Larger font size for result text */
+  margin-bottom: 15px; /* Space below the text */
+  color: #333; /* Dark grey text for readability */
+}
+
+.captured-photo {
+  max-width: 100%; /* Responsive image */
+  border-radius: 5px; /* Rounded corners for image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #28a745; /* Green button */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px; /* Space above the button */
+}
+
+.btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+#modalTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#modalTable th,
+#modalTable td {
+  padding: 10px;
+  border: 1px solid #ddd; /* Light gray border */
+  text-align: left; /* Align text to the left */
+}
+
+#modalTable th {
+  background-color: #f2f2f2; /* Light gray background for headers */
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+  margin-top: 15px; /* Spacing above the buttons */
+}
+
+.modal-actions .btn {
+  flex: 1; /* Make buttons equal width */
+  margin: 0 10px; /* Space between buttons */
+  padding: 10px; /* Padding inside buttons */
+  font-size: 16px; /* Font size */
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.modal-actions .btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Label Styles */
+.modal-body label {
+  font-size: 16px; /* Font size for labels */
+  color: #333; /* Dark gray text color */
+  margin: 10px 0 5px; /* Spacing for labels */
+}
+
+/* Select Dropdown Styles */
+.modal-select {
+  width: 100%; /* Full width for dropdown */
+  max-width: 300px; /* Maximum width for dropdown */
+  padding: 10px; /* Padding inside dropdown */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size for dropdown text */
+  margin-bottom: 15px; /* Margin below dropdown */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: border-color 0.3s; /* Transition for border color */
+}
+
+.modal-select:focus {
+  border-color: #4caf50; /* Green border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Input Field Styles */
+.modal-input {
+  width: 100%; /* Full width for input fields */
+  max-width: 300px; /* Maximum width for input fields */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size for input text */
+  margin-bottom: 15px; /* Margin below input field */
+  background-color: #f9f9f9; /* Light background for readonly input */
+  color: #555; /* Gray text color for readonly input */
+}
+
+/* Suggested Amounts Button Styles */
+.suggested-amounts {
+  display: flex; /* Flex container for buttons */
+  justify-content: space-between; /* Space out buttons */
+  margin-bottom: 20px; /* Margin below suggested amounts */
+}
+
+.suggestion-btn {
+  flex: 1; /* Equal width for buttons */
+  padding: 10px; /* Padding inside buttons */
+  margin: 0 5px; /* Margin between buttons */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #2196f3; /* Blue background */
+  color: white; /* White text color */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.suggestion-btn:hover {
+  background-color: #1976d2; /* Darker blue on hover */
+}
+
+/* Numpad Container */
+.numpad-container {
+  display: grid; /* Grid layout for numpad */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px; /* Gap between buttons */
+}
+
+/* Numpad Button Styles */
+.numpad-btn {
+  padding: 15px; /* Padding inside numpad buttons */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #e0e0e0; /* Light gray background */
+  font-size: 18px; /* Font size for numpad text */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.numpad-btn:hover {
+  background-color: #d6d6d6; /* Slightly darker gray on hover */
+}
+
+/* Specific styles for clear and delete buttons */
+.numpad-btn:nth-child(10),
+.numpad-btn:nth-child(11) {
+  background-color: #ff5733; /* Red background for C and delete */
+}
+
+.numpad-btn:nth-child(10):hover,
+.numpad-btn:nth-child(11):hover {
+  background-color: #c70039; /* Darker red on hover */
+}
+
+#output_saldo_akhir_cbs {
+  font-size: 1.5em; /* Adjust as needed */
+  font-weight: bold;
+  color: #333; /* Optional: change color */
+}
